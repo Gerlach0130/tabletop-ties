@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Game Title 1",
+        "genre": "Strategy",
+        "player_count": 4,
+        "avg_play_time":90,
+        "description": "Description of Game 1",
+        "user_id": [1, 2, 3, 4]
+    },
+    {
+        "title": "Game Title 2",
+        "genre": "Roleplay",
+        "player_count": 4,
+        "avg_play_time":180,
+        "description":"Description of Game 2",
+        "user_id": [1, 2, 3, 4]
+    }
+]
