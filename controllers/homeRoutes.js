@@ -1,7 +1,7 @@
 // required packages and files
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-
+const {User} = require('../models');
 // get request for landing page
 // INCOMPLETE 
 router.get('/', async (req, res) => {
