@@ -2,14 +2,10 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const {User, Game, Event} = require('../models');
+
 // get request for landing page
-// INCOMPLETE 
 router.get('/', async (req, res) => {
     try{
-        // const INSERT MODEL VARIABLE = await MODELNAME. METHOD ({
-            // include : [{MODEL: MODEL NAME}]
-        // })
-        // INCOMPLETE
         const eventData = await Event.findAll({
             include: [{ model: User, attributes: ['name'] },
             { model: Game, attributes: ['title'], include: [{ model: User, attributes: ['name'] }]}
@@ -21,7 +17,6 @@ router.get('/', async (req, res) => {
         });
         const games = gameData.map((game) => game.get({ plain: true }));
         res.render('homepage', {
-            // add in
             events,
             games,
             logged_in: req.session.logged_in
@@ -32,7 +27,6 @@ router.get('/', async (req, res) => {
 });
 
 // profile route withAuth middleware to ensure user is logged in
-// LINE 28 REPLACE WITH MODEL NAME
 router.get('/profile', withAuth, async (req, res) => {
     try{ 
         const userData = await User.findbyPk(req.session.user_id, {
