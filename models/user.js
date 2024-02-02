@@ -55,6 +55,14 @@ User.init(
         events_attended: {
             type: DataTypes.JSON // Store events attended as JSON array --- Possibly take out
         },
+        game_title_interest: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        game_genre_interest: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
     },
     {
         hooks: {
