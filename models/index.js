@@ -6,7 +6,7 @@ User.hasMany(Game, {
   onDelete: 'CASCADE'
 });
 
-Project.belongsTo(User, {
+Game.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
