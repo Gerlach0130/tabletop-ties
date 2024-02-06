@@ -15,8 +15,8 @@ const seedDatabase = async () => {
         for (const event of eventData) {
             await Event.create({
                 ...event,
-                user_id: users[Math.floor(Math.random() * users.lenth)].id,
-                game_id: games[Math.floor(Math.random() * games.lenght)].id,
+                user_id: users[Math.floor(Math.random() * users.length)].id,
+                game_id: games[Math.floor(Math.random() * games.length)].id,
             });
         }
         console.log('Database seeded successfully.');
