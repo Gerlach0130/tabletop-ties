@@ -1,12 +1,12 @@
 // required packages and files 
 const sequelize = require('../config/connection');
-const {User, Game, Event } = require('../models');
+const { User, Game, Event } = require('../models');
 const userData = require('./userData.json');
 const gameData = require('./gameData.json');
 const eventData = require('./eventData.json'); 
 
 const seedDatabase = async () => {
-    try { await sequelize.sync({force: true});
+    try { await sequelize.sync({ force: true });
         const users = await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,
