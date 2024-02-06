@@ -8,11 +8,11 @@ User.hasMany(Game, {
 });
 
 User.hasMany(Event, {
-  foreignKey: 'user_id',
+  foreignKey: 'user_id'
 });
 
 Game.hasMany(Event, {
-  foreignKey: 'game_id',
+  foreignKey: 'game_id'
 });
 
 Game.belongsTo(User, {
@@ -20,11 +20,11 @@ Game.belongsTo(User, {
 });
 
 Event.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'user_id'
 });
 
 Event.belongsTo(Game, {
-  foreignKey: 'game_id',
+  foreignKey: 'game_id'
 });
 
 module.exports = { User, Game, Event };

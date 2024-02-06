@@ -1,7 +1,7 @@
 // For available games to be searched and interested in
 
 // Import 
-const { Model, DataTypes, Sequelize  } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Game extends Model {};

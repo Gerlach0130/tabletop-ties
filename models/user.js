@@ -1,7 +1,7 @@
 // For user credentials and profile info
 
 // Imports
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 

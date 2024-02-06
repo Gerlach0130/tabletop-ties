@@ -4,7 +4,7 @@
         "name": "Bryan",
         "email": "BisforBad@gmail.com",
         "password": "__PLACEHOLDER_PASSWORD__",
-        "location":"City A",
+        "location": "City A",
         "games_played": ["Game 1", "Game 2"],
         "gaming_preferences": ["Strategy", "Roleplay"],
         "events_attended": [],
@@ -15,12 +15,12 @@
         "username": "ClikyClacky2",
         "name": "Reggie",
         "email": "Reg021387@yahoo.com",
-        "password":"__PLACEHOLDER_PASSWORD__",
+        "password": "__PLACEHOLDER_PASSWORD__",
         "location": "City A",
         "games_played": ["Game 1", "Game 2"],
         "gaming_preferences": ["Strategy"],
         "events_attended": [],
-        "game_title_interest":["Game Title 1", "Game Title 2"],
+        "game_title_interest": ["Game Title 1", "Game Title 2"],
         "game_genre_interest": ["Casino"]
     },
     {
@@ -29,22 +29,22 @@
         "email": "DanaD07@gmail.com",
         "password": "__PLACEHOLDER_PASSWORD__",
         "location": "City B",
-        "games_played":["Game 1", "Game 2"],
-        "gaming_preferences":["Roleplay"],
-        "events_attended":[],
-        "game_title_interest":["Game Title 1", "Game Title 2"],
+        "games_played": ["Game 1", "Game 2"],
+        "gaming_preferences": ["Roleplay"],
+        "events_attended": [],
+        "game_title_interest": ["Game Title 1", "Game Title 2"],
         "game_genre_interest": ["Board Games"]
     },
     {
         "username": "BardCore79",
         "name": "Mark",
-        "email":"MarkyMarkB@gmail.com",
-        "password":"__PLACEHOLDER_PASSWORD__",
-        "location":"City B",
-        "games_played":["Game 1", "Game 2"],
-        "gaming_preferences":["Strategy"],
-        "events_attended":[],
-        "game_title_interest":["Game Title 1", "Game Title 2"],
-        "game_genre_interest":["TCG"]
+        "email": "MarkyMarkB@gmail.com",
+        "password": "__PLACEHOLDER_PASSWORD__",
+        "location": "City B",
+        "games_played": ["Game 1", "Game 2"],
+        "gaming_preferences": ["Strategy"],
+        "events_attended": [],
+        "game_title_interest": ["Game Title 1", "Game Title 2"],
+        "game_genre_interest": ["TCG"]
     }
 ]
