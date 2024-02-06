@@ -11,16 +11,7 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
         });
-        const games = [];
-        for (const gameInfo of gameData) {
-            const { user_ids, ...gameAttributes } = gameInfo;
-            const createdGames= await Game.bulkCreate([gameAttributes]);
-            for (const user_id of user_ids) {
-                const game = createdGames[0];
-                await game.addUser(user_id);
-            }
-            games.push(...createdGames);
-        }
+        const games = await Game.bulkCreate(gameData);
         for (const event of eventData) {
             await Event.create({
                 ...event,
