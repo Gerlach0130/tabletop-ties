@@ -1,23 +1,27 @@
 [
     {
+        "title": "Title 1",
         "location": "Event Location 1",
         "date_of": "2024-02-01T18:30:00.000Z",
         "game_id": 1,
         "user_id": 1
     },
     {
+        "title": "Title 2",
         "location": "Event Location 2",
         "date_of": "2024-02-07T18:30:00.000Z",
         "game_id": 2,
         "user_id": 2
     },
     {
+        "title": "Title 3",
         "location": "Event Location 1",
         "date_of": "2024-03-07T18:30:00.000Z",
         "game_id": 1,
         "user_id": 3
     },
     {
+        "title": "Title 4",
         "location": "Event Location 2",
         "date_of": "2024-03-06T18:30:00.000Z",
         "game_id": 2,
