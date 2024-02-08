@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 // post route to update when user is created
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.creat(req.body);
+        const userData = await User.create(req.body);
 
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -28,7 +28,7 @@ router.post('/signup', async (req, res) => {
             req.session.user_id = newUser.id;
             req.session.logged_in = true;
 
-            req.status(200).json(newUser);
+            res.status(200).json(newUser);
         });
     } catch (error) {
         res.status(400).json(error);
