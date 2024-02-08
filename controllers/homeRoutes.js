@@ -6,18 +6,9 @@ const {User, Game, Event} = require('../models');
 // get request for landing page
 router.get('/', async (req, res) => {
      try{
-        const eventData = await Event.findAll({
-            include: [
-                { model: Game, attributes: ['title'] },
-                { model: User, attributes: ['name'] }
-            ]
-        });
+        const eventData = await Event.findAll({});
         const events = eventData.map((event) => event.get({ plain: true }));
-        const gameData = await Game.findAll({
-            include: [
-                { model: Game, attributes: ['id', 'title', 'genre'] }
-            ]
-        });
+        const gameData = await Game.findAll({});
         const games = gameData.map((game) => game.get({ plain: true }));
         res.render('homepage', {
           events,
