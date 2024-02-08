@@ -7,7 +7,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
     try {
         const eventData = await Event.findAll({
-            include: [{ model: User }]
+            include: [{ model: UsersEvents }] 
         });
         res.status(200).json(eventData);
     } catch (error) {
