@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 // GET route to search for users by name
 router.get('/search', async (req, res) => {
@@ -10,7 +11,15 @@ router.get('/search', async (req, res) => {
             where: {
                 name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${req.query.name.toLowerCase()}%`)
             },
-            attributes: ['id', 'name', 'email'] // Possibly add other relevant attributes
+            attributes: ['id', 'name', 'email'], // Possibly add other relevant attributes
+            include: [{
+                model: Game,
+                as: 'interested_games',
+                attributes: ['title', 'genre'],
+                through: {
+                    attributes: [],
+                },
+            }]
         });
         res.status(200).json(userData);
     } catch (err) {
