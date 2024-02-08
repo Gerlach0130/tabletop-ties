@@ -1,14 +1,25 @@
 // required packages and files
 const socketIo = require('socket.io');
+const withAuth = require('./auth');
 
 // initialize connection to socket
+// authorizes user then connects
 function initializeSocket(server) {
     const io = socketIo(server);
+    io.use((socket, next) => {
+        withAuth(socket.request, {}, (err) => {
+            if (err) {
+                return next(new Error('Authentication failed'));
+            }
+            socket.userId = socket.request.session.user_id;
+            next();
+        });
+    });
     io.on('connection', (socket) => {
-        console.log('A user connected');
+        console.log( `${socket.userId} connected`);
         handleDirectMessage(socket, io);
         socket.on('disconnect', () => {
-            console.log('User disconnected');
+            console.log(`${socket.userId} disconnected`);
         });
     });
     return io;
