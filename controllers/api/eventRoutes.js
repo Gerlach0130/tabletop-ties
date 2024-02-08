@@ -1,16 +1,60 @@
 // Imports
 const router = require('express').Router();
-const { Event, UsersEvents } = require('../../models');
+const { Event, Game, User, UsersEvents, EventsGames } = require('../../models');
 const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
-// GET route to list events 
+// GET route to list all events 
 router.get('/', async (req, res) => {
     try {
         const eventData = await Event.findAll({
-            include: [{ model: UsersEvents }] 
+            include: [
+                {
+                    model: Game,
+                    through: EventsGames,
+                    as: 'event_games',
+                },
+                {
+                    model: User,
+                    through: UsersEvents,
+                    as: 'attendees',
+                    attributes: ['name'],
+                }
+            ]
         });
         res.status(200).json(eventData);
     } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+// GET route to fetch a specific event by ID
+router.get('/:id', async (req, res) => {
+    try {
+        const eventData = await Event.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Game,
+                    through: EventsGames,
+                    as: 'event_games',
+                },
+                {
+                    model: User,
+                    through: UsersEvents,
+                    as: 'attendees',
+                    attributes: ['id', 'name'],
+                }
+            ]
+        });
+
+        if (!eventData) {
+            res.status(404).json({ message: 'No event found with that ID.' });
+            return;
+        }
+
+        res.status(200).json(eventData);
+    } catch (error) {
+        console.error('Error fetching event:', error);
         res.status(500).json(error);
     }
 });
@@ -20,9 +64,10 @@ router.get('/date', async (req, res) => {
     try {
         const eventData = await Event.findAll({
             where: {
-                date: req.query.date // Date is in 'YYYY-MM-DD' format
-            }
+                date_of: req.query.date // Date is in 'YYYY-MM-DD' format
+            },
             // Possibly add other relevant associations and attributes
+            // include: []
         });
         res.status(200).json(eventData);
     } catch (err) {
@@ -33,20 +78,18 @@ router.get('/date', async (req, res) => {
 // GET route to search by location 
 router.get('/location', async (req, res) => {
     try {
-        const locationQuery = req.query.location;
         const eventData = await Event.findAll({
             where: {
-                location: sequelize.where(sequelize.fn('LOWER', sequelize.col('location')), 'LIKE', '%' + locationQuery.toLowerCase() + '%')
+                location: sequelize.where(sequelize.fn('LOWER', sequelize.col('location')), 'LIKE', `%${req.query.location.toLowerCase()}%`)
             },
             include: [
-                { model: User, attributes: ['name'] },
-                { model: Game, attributes: ['title'] }
+                {
+                    model: Game,
+                    through: EventsGames,
+                    as: 'event_games', 
+                }
             ]
         });
-        if (eventData.length === 0) {
-            res.status(404).json({ message: 'No events found with that location.' });
-            return;
-        }
         res.status(200).json(eventData);
     } catch (err) {
         console.error(err);
