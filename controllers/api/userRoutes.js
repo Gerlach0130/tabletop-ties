@@ -3,6 +3,21 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// GET route to search for users by name
+router.get('/search', async (req, res) => {
+    try {
+        const userData = await User.findAll({
+            where: {
+                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${req.query.name.toLowerCase()}%`)
+            },
+            attributes: ['id', 'name', 'email'] // Possibly add other relevant attributes
+        });
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // post route to update when user is created
 router.post('/', async (req, res) => {
     try {
