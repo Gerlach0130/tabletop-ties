@@ -1,6 +1,7 @@
 // required packages and files
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // post route to update when user is created
 router.post('/', async (req, res) => {
@@ -14,6 +15,23 @@ router.post('/', async (req, res) => {
         });
     } catch (err) {
         res.status(400).json(err);
+    }
+});
+
+// post route for user registration
+router.post('/signup', async (req, res) => {
+    try {
+        const newUser = await User.create({
+            ...req.body
+        });
+        req.session.save(() => {
+            req.session.user_id = newUser.id;
+            req.session.logged_in = true;
+
+            req.status(200).json(newUser);
+        });
+    } catch (error) {
+        res.status(400).json(error);
     }
 });
 
@@ -50,5 +68,26 @@ router.post('/logout', (req,res) => {
         res.status(404).end();
     }
 });
+
+// GET route for profile 'matching'
+// router.get('/match', withAuth, async (req, res) => {
+//     try {
+//         const currentUser = await User.findByPk(req.session.user_id, {
+//             include: [{ model: Game, as: 'game_title_interest'}]
+//         });
+//         const matchedUsers = await User.findAll({
+//             include: [{
+//                 model: Game,
+//                 as: 'game_title_interest',
+//                 where: {
+//                     id: currentUser.game_title_interest.map(game => game.id)
+//                 }
+//             }]
+//         });
+//         res.status(200).json(matchedUsers);
+//     } catch (error) {
+//         res.status(500).json(error);
+//     }
+// });
 
 module.exports = router;
