@@ -1,8 +1,22 @@
 // required packages and files
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Game } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
+
+// GET route to fetch all users
+router.get('/', async (req, res) => {
+    try {
+        const userData = await User.findAll({
+            attributes: { exclude: ['password'] },
+        });
+
+        res.status(200).json(userData);
+    } catch (error) {
+        console.error('Failed to fetch users:', error);
+        res.status(500).json(error);
+    }
+});
 
 // GET route to fetch a specific user by ID
 router.get('/:id', async (req, res) => {

@@ -1,0 +1,17 @@
+<div class="card userProfile-card m-2">
+    <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">Username: {{username}}</p>
+        <p class="card-text">Location: {{location}}</p>
+        <!-- Additional user information can go here -->
+        {{#if interested_games}}
+        <p class="card-text">Games interested in:
+            {{#each interested_games}}{{this}}, {{/each}}
+        </p>
+        {{/if}}
+        <!-- Conditional rendering for an authenticated user's profile with an edit button, add functionality later -->
+        {{#if logged_in}}
+        <a href="/profile/edit" class="btn btn-primary">Edit Profile</a>
+        {{/if}}
+    </div>
+</div>

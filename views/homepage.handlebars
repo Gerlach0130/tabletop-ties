@@ -26,6 +26,17 @@
         </div>
     </section>
 
+    <section class="profiles-section mt-5">
+        <h2 class="mb-3">Gamer Profiles</h2>
+        <div class="row">
+            {{#each users as |user|}}
+            <div class="col-md-6 mb-4">
+                {{> users/userProfileCard user}}
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
     <section class="events-section mt-5">
         <h2 class="mb-3">Upcoming Events</h2>
         <div class="row">
