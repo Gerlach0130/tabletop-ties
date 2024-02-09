@@ -3,32 +3,18 @@
         <nav>
             <ul>
                 <li class="logo"><a href="#">Tabletop-Ties</a></li>
-
-
                 <li><a href="#">Find Events</a></li>
                 <li><a href="#">Create Events</a></li>
                 <li class="search-bar">
                     <input type="text" placeholder="Search events">
                     <button>Search</button>
                 </li>
-                <li><a href="#" class="sign-in-btn">Sign In</a></li>
+                <li><a href="./login" class="login-button">Login</a></li>
+                <li><a href="./signup" class="signup-button">Sign Up</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
-                    <li><a href="#">Find Events</a></li>
-                    <li><a href="#">Create Events</a></li>
-                    <li class="search-bar">
-                        <input type="text" placeholder="Search events">
-                        <button>Search</button>
-                    </li>
-                    <li><a href="./login" class="login-button">Login</a></li>
-                    <li><a href="./signup" class="signup-button">Sign Up</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
 
 
@@ -55,9 +41,9 @@
         <h2 class="mb-3">Featured Games</h2>
         <div class="row">
             {{#each games as |game|}}
-                <div class="col-md-4 mb-4">
-                    {{> games/gameCard this}}
-                </div>
+            <div class="col-md-4 mb-4">
+                {{> games/gameCard this}}
+            </div>
             {{/each}}
         </div>
     </section>
