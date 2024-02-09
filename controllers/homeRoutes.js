@@ -10,9 +10,12 @@ router.get('/', async (req, res) => {
         const events = eventData.map((event) => event.get({ plain: true }));
         const gameData = await Game.findAll({});
         const games = gameData.map((game) => game.get({ plain: true }));
+        const userData = await User.findAll({});
+        const users = userData.map((user) => user.get({ plain: true }));
         res.render('homepage', {
           events,
           games,
+          users,
           logged_in: req.session.logged_in
        });
     } catch (err) {
