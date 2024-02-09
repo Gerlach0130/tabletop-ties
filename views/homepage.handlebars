@@ -1,52 +1,49 @@
-    <header>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="logo"><a href="#">Tabletop-Ties</a></li>
+
+                <li><a href="#">Find Events</a></li>
+                <li><a href="#">Create Events</a></li>
+                <li class="search-bar">
+                    <input type="text" placeholder="Search events">
+                    <button>Search</button>
+                </li>
+                <li><a href="#" class="sign-in-btn">Sign In</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+    <section class="hero">
         <div class="container">
-            <nav>
-                <ul>
-                    <li class="logo"><a href="#">Tabletop-Ties</a></li>
-
-                    <li><a href="#">Find Events</a></li>
-                    <li><a href="#">Create Events</a></li>
-                    <li class="search-bar">
-                        <input type="text" placeholder="Search events">
-                        <button>Search</button>
-                    </li>
-                    <li><a href="#" class="sign-in-btn">Sign In</a></li>
-                </ul>
-            </nav>
+            <h1>Discover the best game events happening near you!</h1>
+            <p>Get started with Tabletop-Ties.</p>
         </div>
-    </header>
+    </section>
 
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Discover the best game events happening near you!</h1>
-                <p>Get started with Tabletop-Ties.</p>
+    <section class="events-section mt-5">
+        <h2 class="mb-3">Upcoming Events</h2>
+        <div class="row">
+            {{#each events}}
+            <div class="col-md-6 mb-4">
+                {{> events/eventCard this}}
             </div>
-        </section>
+            {{/each}}
+        </div>
+    </section>
 
-        <section class="events-section mt-5">
-            <h2 class="mb-3">Upcoming Events</h2>
-            <div class="row">
-                {{#each events}}
-                <div class="col-md-6 mb-4">
-                    {{> events/eventCard this}}
+    <section class="games-section">
+        <h2 class="mb-3">Featured Games</h2>
+        <div class="row">
+            {{#each games as |game|}}
+                <div class="col-md-4 mb-4">
+                    {{> games/gameCard this}}
                 </div>
-                {{/each}}
-            </div>
-        </section>
-
-        <section class="categories">
-            <div class="container">
-                <h2>Browse Popular Categories</h2>
-                <div class="category">
-                    <img src="concerts.jpg" alt="Most Popular">
-                    <h3>Most Popular</h3>
-                </div>
-                <div class="category">
-                    <img src="Up Coming" alt="Up Coming">
-                    <h3>Up Coming</h3>
-                </div>
-            </div>
-        </section>
-    </main>
+            {{/each}}
+        </div>
+    </section>
+</main>
