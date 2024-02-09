@@ -24,7 +24,7 @@ body {
 header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px 40px; /
+    padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,7 +151,6 @@ nav ul li a {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 
 }
 
 .hero {
