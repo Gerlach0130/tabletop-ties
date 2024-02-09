@@ -93,7 +93,7 @@ router.get('/games/:id', async (req, res) => {
             res.status(404).send('Game not found');
         }
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(error);
     }
 });
 
@@ -131,7 +131,31 @@ router.get('/events/:id', withAuth, async (req, res) => {
         });
     } catch (err) {
         console.error('Error fetching event details:', err);
-        res.status(500).send('Server error');
+        res.status(500).json(error);
+    }
+});
+
+// Route to render a specific user's profile
+router.get('/users/:id', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.params.id, {
+            attributes: { exclude: ['password'] },
+        });
+
+        if (!userData) {
+            res.status(404).send('User not found');
+            return;
+        }
+
+        const user = userData.get({ plain: true });
+
+        res.render('profile', {
+            ...user,
+            logged_in: req.session.logged_in,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
     }
 });
 
