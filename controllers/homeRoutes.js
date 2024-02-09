@@ -74,11 +74,10 @@ router.get('/signup', (req, res) => {
 router.get('/games/:id', async (req, res) => {
     console.log('Fetching game with ID:', req.params.id); 
     try {
-        // ------------------------------------------------------------------------------
         const gameData = await Game.findByPk(req.params.id, {
             include: [{
                 model: User,
-                as: 'interested_users', // Adjust based on your association alias
+                as: 'interested_users',
                 attributes: ['name'],
                 through: {
                     attributes: [],
