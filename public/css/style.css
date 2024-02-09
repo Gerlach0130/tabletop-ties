@@ -234,3 +234,51 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+
+/* Send a Raven Styling below */
+.chat-box {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.message {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 5px; 
+}
+
+.message.sender {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.message.reciever {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.input-box {
+    margin-top: 10px;
+}
+
+.input-box input[type="text"] {
+    width: calc(100% - 80px);
+    border-radius: 5px 0 0 5px;
+    border: 1 px solid #ccc;
+    padding: 10px;
+}
+
+.input-box button {
+    width: 80px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+}
