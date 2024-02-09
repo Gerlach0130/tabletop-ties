@@ -59,8 +59,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// GET route to search by date
-router.get('/date', async (req, res) => {
+// GET route to search by date ---- currently not working 
+router.get('/date/:date_of', async (req, res) => {
     try {
         const eventData = await Event.findAll({
             where: {
@@ -75,8 +75,8 @@ router.get('/date', async (req, res) => {
     }
 });
 
-// GET route to search by location 
-router.get('/location', async (req, res) => {
+// GET route to search by location  ---- currently not working 
+router.get('/location/:location', async (req, res) => {
     try {
         const eventData = await Event.findAll({
             where: {

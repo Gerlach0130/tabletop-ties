@@ -7,11 +7,7 @@ const sequelize = require('../../config/connection');
 // GET route to fetch all games
 router.get('/', async (req, res) => {
     try {
-        const gameData = await Game.findAll({
-            include: [
-                { model: Game, attributes: ['title']}
-            ]
-        });
+        const gameData = await Game.findAll({});
         res.status(200).json(gameData);
     } catch (error) {
         res.status(500).json(error);
@@ -43,7 +39,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// GET route to search by genre
+// GET route to search by genre  ---- currently not working 
 router.get('/genre/:genre', async (req, res) => {
     try {
         const gamesByGenre = await Game.findAll({
@@ -55,7 +51,7 @@ router.get('/genre/:genre', async (req, res) => {
     }
 });
 
-// GET route to search by game title
+// GET route to search by game title  ---- currently not working 
 router.get('/title/:title', async (req, res) => {
     try {
         const gameData = await Game.findAll({
@@ -72,16 +68,17 @@ router.get('/title/:title', async (req, res) => {
     }
 });
 
-// POST route for user to add a game to profile interests **********POSSIBLY CHANGE '/ADD' TO JUST '/' IF ERRORS
+// POST route for user to add a game to profile interests ------------- CURRENTLY DOES NOT WORK
 router.post('/add', withAuth, async (req, res) => {
     try {
         const newGameInterest = await UsersGames.create({
-            ...req.body,
+            // ...req.body,
             user_id: req.session.user_id,
             game_id: req.body.game_id
         });
         res.status(200).json(newGameInterest);
     } catch (error) {
+        console.error(error);
         res.status(500).json(error);
     }
 });
