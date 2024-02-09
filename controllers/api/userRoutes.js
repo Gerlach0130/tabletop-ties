@@ -4,6 +4,25 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
+// GET route to fetch a specific user by ID
+router.get('/:id', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.params.id, {
+            attributes: { exclude: ['password'] },
+        });
+
+        if (!userData) {
+            res.status(404).json({ message: 'User not found' });
+            return;
+        }
+
+        res.status(200).json(userData);
+    } catch (error) {
+        console.error(error); 
+        res.status(500).json(error);
+    }
+});
+
 // GET route to search for users by name
 router.get('/search', async (req, res) => {
     try {
