@@ -2,7 +2,7 @@
 
   ## Description
 
-  Uniting gamers one swipe at a time! An online matchmaking app for like-minded gamers to meet up to play their favorite games of various genres such as tabletop and card. Includes public/group events for specific games and/or locations. Utilizes secure accounts with favorite game preferences in profiles.
+  Uniting gamers one event at a time! TableTop Ties is an online app for like-minded gamers to find events where they can play their favorite games of various genres such as tabletop or cards. These public/group events will be for specific games and/or locations. Our app utilizes secure accounts with favorite game preferences in profiles. Members can message fellow users to get to know one another as well as coordinate games outside of the established events on our application. "Send a Raven" allows the conversation about games to establish friendships amongst players. Avid gamers can all agree that there is nothing harder than attempting to establish new instances of playing their favorite games especially when you don't have a good way to meet people who want to play the same game. TableTop Ties hopes to change the landscape of gameplay matchmaking for the better. 
 
   ## Table of Contents
   * [Installation](#installation)
@@ -15,7 +15,7 @@
   
   ## Installation
 
-  Utilizes Node.js with Express, MySQL, Sequelize, and dotenv, with plans to incorporate another node package.
+  Utilizes Node.js with Express, MySQL, Sequelize, and dotenv, and socket.io
 
   Install all necessary dependencies by running the following command: 
   ```bash
@@ -37,6 +37,14 @@
 
   Project Contributors: <a href="www.github.com/cjva24">CJ</a> | <a href="www.github.com/EowynStark">Andria</a> | <a href="www.github.com/jskelly8">Jess</a> | <a href="www.github.com/Gerlach0130">Michael</a>
 
+  ## Version History and Future Development
+  Version 1.0 created on Jan. 31, 2024
+
+  Future development: 
+  + Search function for Events
+  + Robust Native Matchmaking functionality to suggest new connections with players based on common interests
+  + More to come
+   
   ## Tests
 
   Insomnia Core used for server testing.
