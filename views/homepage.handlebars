@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventbrite Clone</title>
     <link rel="stylesheet" href="/tabletop-ties/public/css/style.css">
 </head>
+
 <body>
-  <header>
-    <div class="container">
-        <nav>
-            <ul>
-              <li class="logo"><a href="#">Tabletop-Ties</a></li>
-              
-                <li><a href="#">Find Events</a></li>
-                <li><a href="#">Create Events</a></li>
-                <li class="search-bar">
-                    <input type="text" placeholder="Search events">
-                    <button>Search</button>
-                </li>
-                <li><a href="#" class="sign-in-btn">Sign In</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li class="logo"><a href="#">Tabletop-Ties</a></li>
+
+                    <li><a href="#">Find Events</a></li>
+                    <li><a href="#">Create Events</a></li>
+                    <li class="search-bar">
+                        <input type="text" placeholder="Search events">
+                        <button>Search</button>
+                    </li>
+                    <li><a href="#" class="sign-in-btn">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
 
     <main>
@@ -31,7 +33,17 @@
             <div class="container">
                 <h1>Discover the best game events happening near you!</h1>
                 <p>Get started with Tabletop-Ties.</p>
-                <button>Find Events</button>
+            </div>
+        </section>
+
+        <section class="events-section mt-5">
+            <h2 class="mb-3">Upcoming Events</h2>
+            <div class="row">
+                {{#each events}}
+                <div class="col-md-6 mb-4">
+                    {{> events/eventCard this}}
+                </div>
+                {{/each}}
             </div>
         </section>
 
@@ -56,4 +68,5 @@
         </div>
     </footer>
 </body>
+
 </html>
