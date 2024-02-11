@@ -277,3 +277,35 @@ a {
     background-color: white;
     color: black;
 }
+
+.single-event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-event p {
+    font-size: 30px;
+}
+
+.single-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-game p {
+    font-size: 25px;
+}
+
+.game-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
