@@ -6,6 +6,7 @@
                 <div class="profile-info mt-3">
                     <h2>Welcome, {{user.name}}!</h2>
                     <p>Email: {{user.email}}</p>
+                    <p>Location: {{user.location}} </p>
                     <!-- Additional user information can go here -->
                 </div>
                 <div class="interested-games mt-5">
@@ -21,6 +22,9 @@
                     {{else}}
                     <p>You haven't added any games to your profile yet.</p>
                     {{/if}}
+                </div>
+                <div class="send-message mt-5">
+                    <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{user.id}}">Send A Raven</button>
                 </div>
                 <!-- Uncomment or add here if implementing event participation/viewing
             <div class="user-events mt-5">
