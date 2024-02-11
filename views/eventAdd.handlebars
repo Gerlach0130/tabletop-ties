@@ -1,0 +1,33 @@
+<main>
+    <div class="container mt-5">
+        <h2>Create a New Event</h2>
+        <form id="addEventForm">
+            <div class="form-group">
+                <label for="title">Event Title:</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="date_of">Date:</label>
+                <input type="date" id="date_of" name="date_of" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="game_id">Game:</label>
+                <select id="game_id" name="game_id" class="form-control" required>
+                    {{#each games}}
+                    <option value="{{this.id}}">{{this.title}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Event</button>
+        </form>
+    </div>
+</main>
+<script src="/js/addEvent.js"></script>
