@@ -1,6 +1,8 @@
   # TableTop Ties
   Find new friends to share your tabletop gaming experiences with using the TableTop Ties platform. Find events and new games to get excited about.  
 
+  https://desolate-coast-16417-f21d4a060ca1.herokuapp.com/
+
   ## Description
 
   Uniting gamers one event at a time! TableTop Ties is an online app for like-minded gamers to find events where they can play their favorite games of various genres such as TTRPG, strategy or TCG. These group events will be for specific games and locations determined by user interaction. Dynamic creation of new Game entries and new Events allow users to build the gaming community based on whatever play format is desired. Our app utilizes secure accounts with favorite game preferences in profiles. Members can message fellow users to get to know one another as well as coordinate games outside of the established events on our application. "Send a Raven" allows the conversation about games to establish friendships amongst players. Avid gamers can all agree that there is nothing harder than attempting to establish new instances of playing their favorite games especially when you don't have a good way to meet people who want to play the same game. TableTop Ties hopes to change the landscape of gameplay matchmaking for the better. 
