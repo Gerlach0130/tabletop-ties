@@ -128,3 +128,184 @@ a {
     color: inherit;
     background-color: inherit;
 }
+
+.hero {
+    text-align: center;
+    font-size: 30px;
+}
+
+.profiles-section h2 {
+    text-align: center;
+}
+
+.events-section h2 {
+    text-align: center;
+}
+
+.games-section h2 {
+    text-align: center;
+}
+
+.login-form h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.login-form p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.signin-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-footer button {
+    font-size: 20px;
+}
+
+.signup-form-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.form-group {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.form-group-button {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.signup-footer button {
+    font-size: 20px;
+}
+
+.signup-footer p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.form-group {
+    display: flex;
+    align-items: left;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
+
+.profile-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-home p {
+    font-size: 25px;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.interested-games {
+    text-align: center;
+}
+
+.profile-home a {
+    font-size: 30px;
+    color: black;
+    border-color: black;
+}
+
+.profile-home a:hover {
+    background-color: black;
+    color: white;
+}
+
+.profile-home a:active {
+    background-color: white;
+    color: black;
+}
+
+.profile-edit h2 {
+    text-align: center;
+}
+
+.profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-edit button {
+    font-size: 20px;
+    color: black;
+    border-color: black;
+}
+
+.profile-edit button:hover {
+    background-color: black;
+    color: white;
+}
+
+.profile-edit button:active {
+    background-color: white;
+    color: black;
+}
+
+.single-event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-event p {
+    font-size: 30px;
+}
+
+.single-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-game p {
+    font-size: 25px;
+}
+
+.game-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
