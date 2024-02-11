@@ -26,6 +26,9 @@
           </li>
           <li><a href="./login" class="login-button">Login</a></li>
           <li><a href="./signup" class="signup-button">Sign Up</a></li>
+          {{#if logged_in}}
+          <li><a href="#" id="logout">Logout</a></li>
+          {{/if}}
         </ul>
       </nav>
     </div>
