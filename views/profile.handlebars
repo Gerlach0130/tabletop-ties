@@ -1,0 +1,33 @@
+<main>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">My Profile</h1>
+                <div class="profile-info mt-3">
+                    <h2>Welcome, {{user.name}}!</h2>
+                    <p>Email: {{user.email}}</p>
+                    <!-- Additional user information can go here -->
+                </div>
+                <div class="interested-games mt-5">
+                    <h3>Games I'm Interested In</h3>
+                    {{#if user.interested_games.length}}
+                    <div class="list-group">
+                        {{#each user.interested_games}}
+                        <a href="/games/{{this.id}}" class="list-group-item list-group-item-action">
+                            {{this.title}} - {{this.genre}}
+                        </a>
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <p>You haven't added any games to your profile yet.</p>
+                    {{/if}}
+                </div>
+                <!-- Uncomment or add here if implementing event participation/viewing
+            <div class="user-events mt-5">
+                <h3>Upcoming Events</h3>
+                Display events the user is participating in or organizing
+            </div> -->
+            </div>
+        </div>
+    </div>
+</main>
