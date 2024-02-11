@@ -1,22 +1,19 @@
-
-    <div>
+<main>
+    <div class="container mt-5">
         <div class="row">
-            <div class="profile-home">
-                <h1 class="text-center">{{name}}'s Profile</h1>
+            <div class="col-12">
+                <h1 class="text-center">My Profile</h1>
                 <div class="profile-info mt-3">
-                    <p>Username: {{username}}</p>
-                    <p>Email: {{email}}</p>
-                    <p>Location: {{location}} </p>
+                    <h2>Welcome, {{user.name}}!</h2>
+                    <p>Email: {{user.email}}</p>
+                    <p>Location: {{user.location}} </p>
                     <!-- Additional user information can go here -->
-                    {{#if isCurrentUser}}
-                    <a href="/profile/edit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
-                    {{/if}}
                 </div>
                 <div class="interested-games mt-5">
                     <h3>Games I'm Interested In</h3>
-                    {{#if interested_games.length}}
+                    {{#if user.interested_games.length}}
                     <div class="list-group">
-                        {{#each interested_games}}
+                        {{#each user.interested_games}}
                         <a href="/games/{{this.id}}" class="list-group-item list-group-item-action">
                             {{this.title}} - {{this.genre}}
                         </a>
@@ -27,14 +24,22 @@
                     {{/if}}
                 </div>
                 <div class="send-message mt-5">
-                    <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
+                    <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{user.id}}">Send A Raven</button>
                 </div>
-                <br>
-                <!-- Uncomment or add here if implementing event participation/viewing
+                
             <div class="user-events mt-5">
                 <h3>Upcoming Events</h3>
-                Display events the user is participating in or organizing
-            </div> -->
+                {{#if user.attendees.length}}
+                <ul>
+                    {{#each user.attendees}}
+                    <li>{{this.title}} - {{this.date}}</li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p>You are not participating in any upcoming events</p>
+                {{/if}}
+            </div>
             </div>
         </div>
     </div>
+</main>
