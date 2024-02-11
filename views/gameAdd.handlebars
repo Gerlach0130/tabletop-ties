@@ -2,24 +2,24 @@
         <h2>Add a New Game</h2>
         <form id="addGameForm">
             <div class="form-group">
-                <label for="title">Game Title:</label>
-                <input type="text" id="title" name="title" class="form-control" required>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" placeholder="Game Title" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="genre">Genre:</label>
-                <input type="text" id="genre" name="genre" class="form-control">
+                <input type="text" id="genre" name="genre" placeholder="Game Genre" class="form-control">
             </div>
             <div class="form-group">
                 <label for="player_count">Player Count:</label>
-                <input type="number" id="player_count" name="player_count" class="form-control">
+                <input type="number" id="player_count" name="player_count" placeholder="Number of players (#)" class="form-control">
             </div>
             <div class="form-group">
                 <label for="avg_play_time">Average Play Time (minutes):</label>
-                <input type="number" id="avg_play_time" name="avg_play_time" class="form-control">
+                <input type="number" id="avg_play_time" name="avg_play_time" placeholder="Number of minutes (#)" class="form-control">
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea id="description" name="description" class="form-control" required></textarea>
+                <textarea id="description" name="description" placeholder="Game Description" class="form-control" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Add Game</button>
         </form>
