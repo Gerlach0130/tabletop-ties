@@ -1,7 +1,7 @@
   # TableTop Ties
   Find new friends to share your tabletop gaming experiences with using the TableTop Ties platform. Find events and new games to get excited about.  
 
-  https://desolate-coast-16417-f21d4a060ca1.herokuapp.com/
+
 
   ## Description
 
@@ -43,6 +43,10 @@
 
   ## Version History and Future Development
   Version 1.0 created on Jan. 31, 2024
+  
+  Deployed Feb. 11, 2024
+  +   https://desolate-coast-16417-f21d4a060ca1.herokuapp.com/
+  +   https://github.com/Gerlach0130/tabletop-ties  
 
   Future development: 
   + Search function for Events, Games, Users
