@@ -216,3 +216,64 @@ a {
     flex-direction: column;
     align-items: right;
 }
+
+.profile-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-home p {
+    font-size: 25px;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.interested-games {
+    text-align: center;
+}
+
+.profile-home a {
+    font-size: 30px;
+    color: black;
+    border-color: black;
+}
+
+.profile-home a:hover {
+    background-color: black;
+    color: white;
+}
+
+.profile-home a:active {
+    background-color: white;
+    color: black;
+}
+
+.profile-edit h2 {
+    text-align: center;
+}
+
+.profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-edit button {
+    font-size: 20px;
+    color: black;
+    border-color: black;
+}
+
+.profile-edit button:hover {
+    background-color: black;
+    color: white;
+}
+
+.profile-edit button:active {
+    background-color: white;
+    color: black;
+}

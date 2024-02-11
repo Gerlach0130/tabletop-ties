@@ -1,7 +1,7 @@
-<main>
-    <div class="container mt-5">
+
+    <div>
         <div class="row">
-            <div class="col-12">
+            <div class="profile-home">
                 <h1 class="text-center">My Profile</h1>
                 <div class="profile-info mt-3">
                     <h2>Welcome, {{name}}!</h2>
@@ -9,6 +9,9 @@
                     <p>Email: {{email}}</p>
                     <p>Location: {{location}} </p>
                     <!-- Additional user information can go here -->
+                    {{#if isCurrentUser}}
+                    <a href="/profile/edit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
+                    {{/if}}
                 </div>
                 <div class="interested-games mt-5">
                     <h3>Games I'm Interested In</h3>
@@ -28,9 +31,6 @@
                     <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
                 </div>
                 <br>
-                {{#if isCurrentUser}}
-                <a href="/profile/edit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
-                {{/if}}
                 <!-- Uncomment or add here if implementing event participation/viewing
             <div class="user-events mt-5">
                 <h3>Upcoming Events</h3>
@@ -39,4 +39,3 @@
             </div>
         </div>
     </div>
-</main>
