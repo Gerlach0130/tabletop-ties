@@ -1,18 +1,18 @@
 [
     {
-        "title": "Game Title 1",
+        "title": "Catan",
         "genre": "Strategy",
         "player_count": 4,
         "avg_play_time": 90,
-        "description": "Description of Game 1",
+        "description": "Players take on the roles of settlers, each attempting to build and develop holdings while trading and acquiring resources. Players gain victory points as their settlements grow and the first to reach a set number of victory points wins.",
         "user_id": 1
     },
     {
-        "title": "Game Title 2",
+        "title": "Avatar Legends: The Roleplaying Game",
         "genre": "Roleplay",
         "player_count": 4,
         "avg_play_time": 180,
-        "description": "Description of Game 2",
+        "description": "Step into the beloved world of Avatar and create your heroes from the list of archetypes. Choose your element, weapon, or technology to rise and meet your destiny amidst your choice of settings. Battle alongside legends and become your own story for the ages.",
         "user_id": 2
     }
 ]
