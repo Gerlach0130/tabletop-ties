@@ -188,4 +188,23 @@ router.get('/game/add', withAuth, (req, res) => {
     });
 });
 
+router.get('/event/add', withAuth, async (req, res) => {
+    try {
+        // Fetch all games from the database
+        const gamesData = await Game.findAll({
+            attributes: ['id', 'title']
+        });
+        const games = gamesData.map(game => game.get({ plain: true }));
+
+        // Render the event addition form with the games list
+        res.render('eventAdd', {
+            games,
+            logged_in: req.session.logged_in
+        });
+    } catch (error) {
+        console.error('Failed to load games for event form:', error);
+        res.status(500).send(error.toString());
+    }
+});
+
 module.exports = router;
