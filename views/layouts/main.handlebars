@@ -14,34 +14,36 @@
 </head>
 
 <body>
-  <header class="text-center  text-light p-3">
-    <div class="container">
-      <nav>
-        <ul>
-          <li class="logo"><a href="#">Tabletop-Ties</a></li>
-          <li><a href="/game/add">Add Game</a></li>
-          <li><a href="#">Create Events</a></li>
-          <li class="search-bar">
+  <header>
+    <div class="header">
+      <div class="logo"><strong>Tabletop Ties</strong>
+      </div>
+        <div class="navbar">
+          <div class="navbar1">
+          <button><a href="/">Home</a></button>
+          <button><a href="#">Find Events</a></button>
+          <button><a href="#">Create Events</a></button>
+          </div>
+          <div class="navbar2">
+          <button><a href="./login" class="login-button">Login</a></button>
+          <button><a href="./signup" class="signup-button">Sign Up</a></button>
+          {{#if logged_in}}
+          <button><a href="/profile">Profile</a></button>
+          <button><a href="#" id="logout">Logout</a></button>
+          {{/if}}
+          </div>
+        </div>
+        <div class="search-bar">
             <input type="text" placeholder="Search events">
             <button>Search</button>
-          </li>
-          <li><a href="/">Home</a></li>
-          <li><a href="./login" class="login-button">Login</a></li>
-          <li><a href="./signup" class="signup-button">Sign Up</a></li>
-          {{#if logged_in}}
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="#" id="logout">Logout</a></li>
-          {{/if}}
-        </ul>
-      </nav>
+        </div>
     </div>
   </header>
 
-  <main class="container mt-4">
+  <div class="messenger">
     <div class="row">
       <div class="col-md-8 offset-md-2">
         <div class="chat-box bg-light p-3 mb-4">
-
         </div>
         <div class="input-box">
           <div class="input-group">
@@ -53,7 +55,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
   {{{ body }}}
 
   <footer>
