@@ -128,3 +128,20 @@ a {
     color: inherit;
     background-color: inherit;
 }
+
+.hero {
+    text-align: center;
+    font-size: 30px;
+}
+
+.profiles-section h2 {
+    text-align: center;
+}
+
+.events-section h2 {
+    text-align: center;
+}
+
+.games-section h2 {
+    text-align: center;
+}
