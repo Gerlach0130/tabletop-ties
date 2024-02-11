@@ -63,4 +63,6 @@ Copyright(c) 2024
 
   ## Contact
 
-  Any questions or comments can be directed to any of the above [contributers.](#contributions)
+  Any questions or comments can be directed to any of the above [contributors.](#contributions)
+
+
