@@ -1,8 +1,11 @@
-<div class="card event-card m-2">
+<div class="card text-bg-dark text-center m-4">
+    <div class="card-header">
+        {{title}}
+    </div>
     <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Date: {{format_date date_of}}</h6>
-        <p class="card-text">Location: {{location}}</p>
-        <a href="/events/{{id}}" class="btn btn-primary">Event Details</a>
+        <h5 class="card-title">Date: {{format_date date_of}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Location: {{location}}</h6>
+        <p class="card-text">Description: {{description}}</p>
+        <a href="/events/{{id}}" class="btn btn-dark">Event Details</a>
     </div>
 </div>
