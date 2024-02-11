@@ -180,4 +180,12 @@ router.get('/profile/edit', withAuth, async (req, res) => {
     }
 });
 
+// GET route to display the add a game form
+router.get('/game/add', withAuth, (req, res) => {
+    res.render('gameAdd', {
+        // IF needed, later add any necessary flags below
+        logged_in: req.session.logged_in
+    });
+});
+
 module.exports = router;
