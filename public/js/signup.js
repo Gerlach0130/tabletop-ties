@@ -22,7 +22,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile'); // Redirect to profile page
     } else {
-      alert(response.statusText);
+      alert('Signup failed, Please try again -- Be sure to fill out all fields and have a password at least 8 characters in length');
     }
   }
 };
