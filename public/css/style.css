@@ -309,3 +309,9 @@ a {
     flex-direction: column;
     align-items: center;
 }
+
+.user-events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
