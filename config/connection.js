@@ -6,8 +6,8 @@ require('dotenv').config();
 let sequelize;
 
 // Check if the `JAWSDB_URL` environment variable is set on Heroku deployment -- if not, initialize Sequelize via localHost
-if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
+if (process.env.PORT) {
+  sequelize = new Sequelize(process.env.PORT);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
