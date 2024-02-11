@@ -59,7 +59,21 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// GET route to search by date ---- currently not working 
+// POST route to create a new event
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const newEvent = await Event.create({
+            ...req.body,
+            user_id: req.session.user_id 
+        });
+        res.status(201).json(newEvent);
+    } catch (error) {
+        console.error('Failed to create event:', error);
+        res.status(500).json({ message: 'Failed to create event', error: error.toString() });
+    }
+});
+
+// GET route to search by date ---- currently not working ----
 router.get('/date/:date_of', async (req, res) => {
     try {
         const eventData = await Event.findAll({
@@ -75,7 +89,7 @@ router.get('/date/:date_of', async (req, res) => {
     }
 });
 
-// GET route to search by location  ---- currently not working 
+// GET route to search by location  ---- currently not working ----
 router.get('/location/:location', async (req, res) => {
     try {
         const eventData = await Event.findAll({
@@ -97,19 +111,5 @@ router.get('/location/:location', async (req, res) => {
     }
 });
 
-// POST route to create a new event
-router.post('/', withAuth, async (req, res) => {
-    try {
-        const newEvent = await Event.create({
-            ...req.body,
-            user_id: req.session.user_id 
-        });
-        res.status(201).json(newEvent);
-    } catch (error) {
-        console.error('Failed to create event:', error);
-        res.status(500).json({ message: 'Failed to create event', error: error.toString() });
-    }
-});
-
-// Exports 
+// Export
 module.exports = router;

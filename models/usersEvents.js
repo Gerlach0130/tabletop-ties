@@ -32,4 +32,5 @@ UsersEvents.init(
     }
 );
 
+// Export
 module.exports = UsersEvents;

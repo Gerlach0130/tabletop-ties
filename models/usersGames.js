@@ -32,4 +32,5 @@ UsersGames.init(
     }
 );
 
+// Export
 module.exports = UsersGames;

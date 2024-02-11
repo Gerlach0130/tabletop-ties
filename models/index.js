@@ -1,3 +1,4 @@
+// Imports
 const User = require('./user');
 const Game = require('./game');
 const Event = require('./event');
@@ -5,6 +6,7 @@ const UsersGames = require('./usersGames');
 const EventsGames = require('./eventsGames');
 const UsersEvents = require('./usersEvents');
 
+// Route relationships
 User.hasMany(Game, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
@@ -72,4 +74,5 @@ Event.belongsToMany(Game, {
   otherKey: 'game_id'
 });
 
+// Export
 module.exports = { User, Game, Event, UsersEvents, UsersGames, EventsGames };

@@ -39,7 +39,25 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// GET route to search by genre  ---- currently not working 
+// POST route to add a new game
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const { title, genre, player_count, avg_play_time, description } = req.body;
+        const newGame = await Game.create({
+            title,
+            genre,
+            player_count,
+            avg_play_time,
+            description
+        });
+        res.status(201).json(newGame);
+    } catch (error) {
+        console.error('Failed to add game:', error);
+        res.status(500).json({ message: 'Failed to add game', error });
+    }
+});
+
+// GET route to search by genre  ---- currently not working ----
 router.get('/genre/:genre', async (req, res) => {
     try {
         const gamesByGenre = await Game.findAll({
@@ -51,7 +69,7 @@ router.get('/genre/:genre', async (req, res) => {
     }
 });
 
-// GET route to search by game title  ---- currently not working 
+// GET route to search by game title  ---- currently not working ----
 router.get('/title/:title', async (req, res) => {
     try {
         const gameData = await Game.findAll({
@@ -68,7 +86,7 @@ router.get('/title/:title', async (req, res) => {
     }
 });
 
-// POST route for user to add a game to profile interests ------------- CURRENTLY DOES NOT WORK
+// POST route for user to add a game to profile interests ---- currently not working ----
 router.post('/add', withAuth, async (req, res) => {
     try {
         const newGameInterest = await UsersGames.create({
@@ -80,24 +98,6 @@ router.post('/add', withAuth, async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json(error);
-    }
-});
-
-// POST route to add a new game
-router.post('/', withAuth, async (req, res) => {
-    try {
-        const { title, genre, player_count, avg_play_time, description } = req.body;
-        const newGame = await Game.create({
-            title,
-            genre,
-            player_count,
-            avg_play_time,
-            description
-        });
-        res.status(201).json(newGame);
-    } catch (error) {
-        console.error('Failed to add game:', error);
-        res.status(500).json({ message: 'Failed to add game', error });
     }
 });
 
