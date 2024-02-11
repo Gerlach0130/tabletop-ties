@@ -4,27 +4,27 @@
         "name": "Bryan",
         "email": "BisforBad@gmail.com",
         "password": "__PLACEHOLDER_PASSWORD__",
-        "location": "City A"
+        "location": "New York, NY"
     },
     {
         "username": "ClikyClacky2",
         "name": "Reggie",
         "email": "Reg021387@yahoo.com",
         "password": "__PLACEHOLDER_PASSWORD__",
-        "location": "City A"
+        "location": "Los Angeles, CA"
     },
     {
         "username": "DiceDemonz",
         "name": "Dana",
         "email": "DanaD07@gmail.com",
         "password": "__PLACEHOLDER_PASSWORD__",
-        "location": "City B"
+        "location": "Dallas, TX"
     },
     {
         "username": "BardCore79",
         "name": "Mark",
         "email": "MarkyMarkB@gmail.com",
         "password": "__PLACEHOLDER_PASSWORD__",
-        "location": "City B"
+        "location": "Orlando, FL"
     }
 ]
