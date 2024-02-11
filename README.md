@@ -1,8 +1,9 @@
   # TableTop Ties
+  Find new friends to share your tabletop gaming experiences with using the TableTop Ties platform. Find events and new games to get excited about.  
 
   ## Description
 
-  Uniting gamers one event at a time! TableTop Ties is an online app for like-minded gamers to find events where they can play their favorite games of various genres such as tabletop or cards. These public/group events will be for specific games and/or locations. Our app utilizes secure accounts with favorite game preferences in profiles. Members can message fellow users to get to know one another as well as coordinate games outside of the established events on our application. "Send a Raven" allows the conversation about games to establish friendships amongst players. Avid gamers can all agree that there is nothing harder than attempting to establish new instances of playing their favorite games especially when you don't have a good way to meet people who want to play the same game. TableTop Ties hopes to change the landscape of gameplay matchmaking for the better. 
+  Uniting gamers one event at a time! TableTop Ties is an online app for like-minded gamers to find events where they can play their favorite games of various genres such as TTRPG, strategy or TCG. These group events will be for specific games and locations determined by user interaction. Dynamic creation of new Game entries and new Events allow users to build the gaming community based on whatever play format is desired. Our app utilizes secure accounts with favorite game preferences in profiles. Members can message fellow users to get to know one another as well as coordinate games outside of the established events on our application. "Send a Raven" allows the conversation about games to establish friendships amongst players. Avid gamers can all agree that there is nothing harder than attempting to establish new instances of playing their favorite games especially when you don't have a good way to meet people who want to play the same game. TableTop Ties hopes to change the landscape of gameplay matchmaking for the better. 
 
   ## Table of Contents
   * [Installation](#installation)
@@ -15,7 +16,7 @@
   
   ## Installation
 
-  Utilizes Node.js with Express, MySQL, Sequelize, and dotenv, and socket.io
+  Utilizes Node.js with Express, MySQL, Sequelize, dotenv, and socket.io
 
   Install all necessary dependencies by running the following command: 
   ```bash
@@ -35,13 +36,14 @@
 
   ## Contributions
 
-  Project Contributors: <a href="www.github.com/cjva24">CJ</a> | <a href="www.github.com/EowynStark">Andria</a> | <a href="www.github.com/jskelly8">Jess</a> | <a href="www.github.com/Gerlach0130">Michael</a>
+  Project Contributors: <a href="www.github.com/jskelly8">Jess</a> - FullStack | <a href="www.github.com/Gerlach0130">Michael</a> - FullStack | <a href="www.github.com/EowynStark">Andria</a> - FullStack | <a href="www.github.com/cjva24">CJ</a> -FrontEnd
+ 
 
   ## Version History and Future Development
   Version 1.0 created on Jan. 31, 2024
 
   Future development: 
-  + Search function for Events
+  + Search function for Events, Games, Users
   + Robust Native Matchmaking functionality to suggest new connections with players based on common interests
   + More to come
    
@@ -51,27 +53,11 @@
 
   ## License
 
-  MIT License
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-  Copyright (c) 2024
+This [license](./LICENSE) enables reusers to copy and distribute the material in any medium or format in unadapted form only, for noncommercial purposes only, and only so long as attribution is given to the creator. 
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
+Copyright(c) 2024
 
   ## Contact
 
