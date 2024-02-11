@@ -1,9 +1,9 @@
-// required packages and files
+// Imports
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const {User, Game, Event} = require('../models');
 
-// get request for landing page
+// GET request for landing page
 router.get('/', async (req, res) => {
      try{
         const eventData = await Event.findAll({});
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// profile route withAuth middleware to ensure user is logged in
+// GET route for profile withAuth middleware to ensure user is logged in
 router.get('/profile', withAuth, async (req, res) => {
     try{ 
         const userData = await User.findByPk(req.session.user_id, {
@@ -52,7 +52,35 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
-// login route
+// GET route to display the add a game form
+router.get('/game/add', withAuth, (req, res) => {
+    res.render('gameAdd', {
+        // IF needed, later add any necessary flags below
+        logged_in: req.session.logged_in
+    });
+});
+
+// GET route to display the add an event form
+router.get('/event/add', withAuth, async (req, res) => {
+    try {
+        // Fetch all games from the database
+        const gamesData = await Game.findAll({
+            attributes: ['id', 'title']
+        });
+        const games = gamesData.map(game => game.get({ plain: true }));
+
+        // Render the event addition form with the games list
+        res.render('eventAdd', {
+            games,
+            logged_in: req.session.logged_in
+        });
+    } catch (error) {
+        console.error('Failed to load games for event form:', error);
+        res.status(500).send(error.toString());
+    }
+});
+
+// GET login route
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/profile');
@@ -61,7 +89,7 @@ router.get('/login', (req, res) => {
     res.render('login', {loggedIn: req.session.logged_in});
 });
 
-// Signup Route
+// GET Signup Route
 router.get('/signup', (req, res) => {
     try {
         if (req.session.logged_in) {
@@ -164,6 +192,7 @@ router.get('/users/:id', withAuth, async (req, res) => {
     }
 });
 
+// GET route to edit profile
 router.get('/profile/edit', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
@@ -180,31 +209,5 @@ router.get('/profile/edit', withAuth, async (req, res) => {
     }
 });
 
-// GET route to display the add a game form
-router.get('/game/add', withAuth, (req, res) => {
-    res.render('gameAdd', {
-        // IF needed, later add any necessary flags below
-        logged_in: req.session.logged_in
-    });
-});
-
-router.get('/event/add', withAuth, async (req, res) => {
-    try {
-        // Fetch all games from the database
-        const gamesData = await Game.findAll({
-            attributes: ['id', 'title']
-        });
-        const games = gamesData.map(game => game.get({ plain: true }));
-
-        // Render the event addition form with the games list
-        res.render('eventAdd', {
-            games,
-            logged_in: req.session.logged_in
-        });
-    } catch (error) {
-        console.error('Failed to load games for event form:', error);
-        res.status(500).send(error.toString());
-    }
-});
-
+// Export
 module.exports = router;
