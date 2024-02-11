@@ -1,28 +1,27 @@
-
-    <div class="profile-home">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">My Profile</h1>
-                <div class="profile-info mt-3">
-                    <h2>{{name}}'s Profile</h2>
-                    <p>Email: {{email}}</p>
-                    <p>Location: {{location}} </p>
-                    <!-- Additional user information can go here -->
+<div class="profile-home">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">My Profile</h1>
+            <div class="profile-info mt-3">
+                <h2>{{name}}'s Profile</h2>
+                <p>Email: {{email}}</p>
+                <p>Location: {{location}} </p>
+                <!-- Additional user information can go here -->
+            </div>
+            <div class="interested-games mt-5">
+                <h3>Games I'm Interested In</h3>
+                {{#if interested_games.length}}
+                <div class="list-group">
+                    {{#each interested_games}}
+                    <a href="/games/{{this.id}}" class="list-group-item list-group-item-action">
+                        {{this.title}} - {{this.genre}}
+                    </a>
+                    {{/each}}
                 </div>
-                <div class="interested-games mt-5">
-                    <h3>Games I'm Interested In</h3>
-                    {{#if interested_games.length}}
-                    <div class="list-group">
-                        {{#each interested_games}}
-                        <a href="/games/{{this.id}}" class="list-group-item list-group-item-action">
-                            {{this.title}} - {{this.genre}}
-                        </a>
-                        {{/each}}
-                    </div>
-                    {{else}}
-                    <p>You haven't added any games to your profile yet.</p>
-                    {{/if}}
-                </div>
+                {{else}}
+                <p>You haven't added any games to your profile yet.</p>
+                {{/if}}
+            </div>
             <div class="user-events mt-5">
                 <h3>Upcoming Events</h3>
                 {{#if attendees.length}}
@@ -36,8 +35,12 @@
                 {{/if}}
             </div>
             <div class="send-message mt-5">
-                    <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
-                </div>
+                <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
             </div>
+            <br>
+            {{#if isCurrentUser}}
+            <a href="/profile/edit" class="btn btn-outline-primary btn-sm d-flex justify-content-center">Edit Profile</a>
+            {{/if}}
         </div>
     </div>
+</div>

@@ -1,9 +1,11 @@
-<div class="card userProfile-card m-2">
+<div class="card text-bg-dark text-center m-4">
+    <div class="card-header">
+        {{name}}
+    </div>
     <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">Username: {{username}}</p>
-        <p class="card-text">Location: {{location}}</p>
-        <a href="/users/{{id}}" class="btn btn-primary">View Profile</a>
+        <h5 class="card-title">Username: {{username}}</h5>
+        <h6 class="card-subtitle mb-3 text-muted">Location: {{location}}</h6>
+        <a href="/users/{{id}}" class="btn btn-dark">View Profile</a>
         <!-- Additional user information can go here -->
         {{#if interested_games}}
         <p class="card-text">Games interested in:

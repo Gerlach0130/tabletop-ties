@@ -1,8 +1,13 @@
-<div class="card game-card m-2">
-    <img src="{{image}}" class="card-img-top" alt="{{title}}">
+<div class="card text-bg-dark text-center m-4">
+    {{!-- <img src="{{image}}" class="card-img-top" alt="{{title}}"> --}}
+    <div class="card-header">
+        {{title}}
+    </div>
     <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">{{genre}}</p>
-        <a href="/games/{{id}}" class="btn btn-primary">Learn More</a>
+        <h5 class="card-title">{{genre}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Player Count: {{player_count}}</h6>
+        <p class="card-text">Average Play Time: {{avg_play_time}}</p>
+        <p class="card-text text-muted">Description: {{description}}</p>
+        <a href="/games/{{id}}" class="btn btn-dark">Learn More</a>
     </div>
 </div>

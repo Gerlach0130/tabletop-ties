@@ -6,12 +6,12 @@
         </div>
     </section>
 
-    <section class="profiles-section mt-5">
-        <h2>Gamer Profiles</h2>
+    <section class="games-section">
+        <h2>Featured Games</h2>
         <div class="row">
-            {{#each users as |user|}}
-            <div class="col-md-6 mb-4">
-                {{> users/userProfileCard this}}
+            {{#each games as |game|}}
+            <div class="col-md-4 mb-4">
+                {{> games/gameCard this}}
             </div>
             {{/each}}
         </div>
@@ -28,14 +28,15 @@
         </div>
     </section>
 
-    <section class="games-section">
-        <h2>Featured Games</h2>
+    <section class="profiles-section mt-5">
+        <h2>Gamer Profiles</h2>
         <div class="row">
-            {{#each games as |game|}}
-            <div class="col-md-4 mb-4">
-                {{> games/gameCard this}}
+            {{#each users as |user|}}
+            <div class="col-md-6 mb-4">
+                {{> users/userProfileCard this}}
             </div>
             {{/each}}
         </div>
     </section>
+
 </main>
