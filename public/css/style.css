@@ -172,3 +172,47 @@ a {
 .signin-footer button {
     font-size: 20px;
 }
+
+.signup-form-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.form-group {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.form-group-button {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.signup-footer button {
+    font-size: 20px;
+}
+
+.signup-footer p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.form-group {
+    display: flex;
+    align-items: left;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
