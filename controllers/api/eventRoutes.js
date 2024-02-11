@@ -98,15 +98,16 @@ router.get('/location/:location', async (req, res) => {
 });
 
 // POST route to create a new event
-router.post('/create', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newEvent = await Event.create({
             ...req.body,
-            user_id: req.session.user_id
+            user_id: req.session.user_id 
         });
-        res.status(200).json(newEvent);
+        res.status(201).json(newEvent);
     } catch (error) {
-        res.status(500).json(error);
+        console.error('Failed to create event:', error);
+        res.status(500).json({ message: 'Failed to create event', error: error.toString() });
     }
 });
 
