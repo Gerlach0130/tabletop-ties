@@ -288,13 +288,13 @@ a {
     font-size: 30px;
 }
 
-.single-game {
+.game-detail {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.single-game p {
+.game-detail p {
     font-size: 25px;
 }
 
@@ -314,4 +314,14 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.game-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-description p {
+    text-align: center;
 }
