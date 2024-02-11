@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 // profile route withAuth middleware to ensure user is logged in
 router.get('/profile', withAuth, async (req, res) => {
     try{ 
-        const userData = await User.findbyPk(req.session.user_id, {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
             include: [{
                 model: Game,
@@ -158,6 +158,22 @@ router.get('/users/:id', withAuth, async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json(error);
+    }
+});
+
+router.get('/profile/edit', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+        });
+        if (!userData) {
+            res.status(404).send('User not found');
+            return;
+        }
+        const user = userData.get({ plain: true });
+        res.render('profileEdit', { user, logged_in: true });
+    } catch (error) {
+        res.status(500).send(error.toString());
     }
 });
 

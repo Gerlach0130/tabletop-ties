@@ -126,6 +126,23 @@ router.post('/logout', (req,res) => {
     }
 });
 
+router.post('/profile/edit', withAuth, async (req, res) => {
+    try {
+        const { name, email, location } = req.body;
+        const updatedUserData = await User.update(
+            { name, email, location },
+            { where: { id: req.session.user_id } }
+        );
+        if (!updatedUserData) {
+            res.status(404).json({ message: 'User not found' });
+            return;
+        }
+        res.json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
 // GET route for profile 'matching'
 // router.get('/match', withAuth, async (req, res) => {
 //     try {
