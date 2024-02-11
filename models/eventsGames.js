@@ -33,4 +33,5 @@ EventsGames.init(
     }
 );
 
+// Export
 module.exports = EventsGames;

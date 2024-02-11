@@ -55,4 +55,5 @@ Event.init(
     }
 );
 
+// Export
 module.exports = Event;

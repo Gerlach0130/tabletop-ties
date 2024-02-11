@@ -24,7 +24,6 @@ body {
 }
 
 .navbar {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -35,13 +34,11 @@ body {
 .navbar1 {
     display: flex;
     flex-direction: row;
-    margin-left: 50px;
 }
 
 .navbar2 {
     display: flex;
     flex-direction: row;
-    margin-right: 50px;
 }
 
 button {
@@ -324,4 +321,12 @@ a {
 
 .game-description p {
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -1,4 +1,4 @@
-// required packages and files
+// Imports
 const router = require('express').Router();
 const { User, Game } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -37,30 +37,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// GET route to search for users by name
-router.get('/search', async (req, res) => {
-    try {
-        const userData = await User.findAll({
-            where: {
-                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${req.query.name.toLowerCase()}%`)
-            },
-            attributes: ['id', 'name', 'email'], // Possibly add other relevant attributes
-            include: [{
-                model: Game,
-                as: 'interested_games',
-                attributes: ['title', 'genre'],
-                through: {
-                    attributes: [],
-                },
-            }]
-        });
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// post route to update when user is created
+// POST route to update when user is created
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -75,7 +52,25 @@ router.post('/', async (req, res) => {
     }
 });
 
-// post route for user registration
+// POST route to edit profile
+router.post('/profile/edit', withAuth, async (req, res) => {
+    try {
+        const { name, email, location } = req.body;
+        const updatedUserData = await User.update(
+            { name, email, location },
+            { where: { id: req.session.user_id } }
+        );
+        if (!updatedUserData) {
+            res.status(404).json({ message: 'User not found' });
+            return;
+        }
+        res.json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+// POST route for user registration
 router.post('/signup', async (req, res) => {
     try {
         const newUser = await User.create({
@@ -92,7 +87,7 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-// post route for handling login requests
+// POST route for handling login requests
 router.post ('/login', async (req, res) => {
     try {
         const userData = await User.findOne({where: {email:req.body.email}});
@@ -115,7 +110,7 @@ router.post ('/login', async (req, res) => {
     }
 });
 
-// post route to handle logout requests
+// POST route to handle logout requests
 router.post('/logout', (req,res) => {
     if (req.session.logged_in){
         req.session.destroy(() => {
@@ -126,42 +121,51 @@ router.post('/logout', (req,res) => {
     }
 });
 
-router.post('/profile/edit', withAuth, async (req, res) => {
+// GET route to search for users by name ---- currently not working ----
+router.get('/search', async (req, res) => {
     try {
-        const { name, email, location } = req.body;
-        const updatedUserData = await User.update(
-            { name, email, location },
-            { where: { id: req.session.user_id } }
-        );
-        if (!updatedUserData) {
-            res.status(404).json({ message: 'User not found' });
-            return;
-        }
-        res.json({ message: 'Profile updated successfully' });
+        const userData = await User.findAll({
+            where: {
+                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${req.query.name.toLowerCase()}%`)
+            },
+            attributes: ['id', 'name', 'email'], // Possibly add other relevant attributes
+            include: [{
+                model: Game,
+                as: 'interested_games',
+                attributes: ['title', 'genre'],
+                through: {
+                    attributes: [],
+                },
+            }]
+        });
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
+// GET route for profile 'matching' ---- currently not working ----
+router.get('/match', withAuth, async (req, res) => {
+    try {
+        const currentUser = await User.findByPk(req.session.user_id, {
+            include: [{ model: Game, as: 'game_title_interest'}]
+        });
+        const matchedUsers = await User.findAll({
+            include: [{
+                model: Game,
+                as: 'game_title_interest',
+                where: {
+                    id: currentUser.game_title_interest.map(game => game.id)
+                }
+            }]
+        });
+        res.status(200).json(matchedUsers);
     } catch (error) {
         res.status(500).json(error);
     }
 });
 
-// GET route for profile 'matching'
-// router.get('/match', withAuth, async (req, res) => {
-//     try {
-//         const currentUser = await User.findByPk(req.session.user_id, {
-//             include: [{ model: Game, as: 'game_title_interest'}]
-//         });
-//         const matchedUsers = await User.findAll({
-//             include: [{
-//                 model: Game,
-//                 as: 'game_title_interest',
-//                 where: {
-//                     id: currentUser.game_title_interest.map(game => game.id)
-//                 }
-//             }]
-//         });
-//         res.status(200).json(matchedUsers);
-//     } catch (error) {
-//         res.status(500).json(error);
-//     }
-// });
-
+// Export
 module.exports = router;

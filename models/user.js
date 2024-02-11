@@ -66,4 +66,5 @@ User.init(
     }
 );
 
+// Export
 module.exports = User;
