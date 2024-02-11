@@ -1,24 +1,31 @@
 // required packages and files 
 const sequelize = require('../config/connection');
-const {User, } = require('../models');
+const { User, Game, Event } = require('../models');
 const userData = require('./userData.json');
-// add additional packages or files as needed
-// line 3 add additional model names as needed 
+const gameData = require('./gameData.json');
+const eventData = require('./eventData.json'); 
 
 const seedDatabase = async () => {
-    await sequelize.sync({force: true});
-    const users = await User.bulkCreat(userData, {
+    try { await sequelize.sync({ force: true });
+        const users = await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,
-    });
-    // add model name to the following lines
-    for (const  of    ) {
-        await .create({
-            ...  ,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
         });
+        const games = await Game.bulkCreate(gameData);
+        for (const event of eventData) {
+            await Event.create({
+                ...event,
+                user_id: users[Math.floor(Math.random() * users.length)].id,
+                game_id: games[Math.floor(Math.random() * games.length)].id,
+            });
+        }
+        console.log('Database seeded successfully.');
+    } catch (err) {
+        console.error('Error seeding database: ', err);
+    } finally {
+        await sequelize.close();
+        process.exit(0);
     }
-    process.exit(0);
 };
 
 seedDatabase();

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h1 class="display-4">{{event.title}}</h1>
+    <p class="lead">{{event.description}}</p>
+    <p><strong>Location:</strong> {{event.location}}</p>
+    <p><strong>Date:</strong> {{format_date event.date_of}}</p>
+
+    {{#if event_games}}
+    <div class="games-list mt-4">
+        <h2>Featured Games</h2>
+        <ul class="list-group">
+            {{#each event_games}}
+            <li class="list-group-item">
+                {{this.title}} - {{this.genre}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+
+    {{#if attendees}}
+    <div class="attendees-list mt-4">
+        <h2>Attendees</h2>
+        <ul class="list-group">
+            {{#each attendees}}
+            <li class="list-group-item">{{this.name}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+</div>

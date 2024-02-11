@@ -1,1 +1,30 @@
-{}
+[
+    {
+        "username": "BBGkiller",
+        "name": "Bryan",
+        "email": "BisforBad@gmail.com",
+        "password": "password123",
+        "location": "New York, NY"
+    },
+    {
+        "username": "ClikyClacky2",
+        "name": "Reggie",
+        "email": "Reg021387@yahoo.com",
+        "password": "password123",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "username": "DiceDemonz",
+        "name": "Dana",
+        "email": "DanaD07@gmail.com",
+        "password": "password123",
+        "location": "Dallas, TX"
+    },
+    {
+        "username": "BardCore79",
+        "name": "Mark",
+        "email": "MarkyMarkB@gmail.com",
+        "password": "password123",
+        "location": "Orlando, FL"
+    }
+]

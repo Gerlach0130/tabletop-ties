@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <div class="game-detail">
+        <h1 class="game-title">{{title}}</h1>
+        <p class="game-genre"><strong>Genre:</strong> {{genre}}</p>
+        <div class="game-description">
+            <h3>Description</h3>
+            <p>{{description}}</p>
+        </div>
+        <!-- Assuming there are images associated with the game -->
+        {{#if images}}
+        <div class="game-images mt-3">
+            <h3>Images</h3>
+            {{#each images}}
+            <img src="{{this}}" alt="Game Image" class="img-fluid">
+            {{/each}}
+        </div>
+        {{/if}}
+        <!-- Display interested users if available -->
+        {{#if interested_users}}
+        <div class="interested-users mt-3">
+            <h3>Interested Users</h3>
+            <ul>
+                {{#each interested_users}}
+                <li>{{this.name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+    </div>
+</div>

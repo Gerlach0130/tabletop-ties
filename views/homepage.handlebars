@@ -1,0 +1,41 @@
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>Discover the best game events happening near you!</h1>
+            <p>Get started with Tabletop-Ties.</p>
+        </div>
+    </section>
+
+    <section class="profiles-section mt-5">
+        <h2 class="mb-3">Gamer Profiles</h2>
+        <div class="row">
+            {{#each users as |user|}}
+            <div class="col-md-6 mb-4">
+                {{> users/userProfileCard this}}
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
+    <section class="events-section mt-5">
+        <h2 class="mb-3">Upcoming Events</h2>
+        <div class="row">
+            {{#each events}}
+            <div class="col-md-6 mb-4">
+                {{> events/eventCard this}}
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
+    <section class="games-section">
+        <h2 class="mb-3">Featured Games</h2>
+        <div class="row">
+            {{#each games as |game|}}
+            <div class="col-md-4 mb-4">
+                {{> games/gameCard this}}
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</main>

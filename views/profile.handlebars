@@ -1,0 +1,40 @@
+<main>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">My Profile</h1>
+                <div class="profile-info mt-3">
+                    <h2>Welcome, {{name}}!</h2>
+                    <p>Username: {{username}}</p>
+                    <p>Email: {{email}}</p>
+                    <p>Location: {{location}} </p>
+                    <!-- Additional user information can go here -->
+                </div>
+                <div class="interested-games mt-5">
+                    <h3>Games I'm Interested In</h3>
+                    {{#if interested_games.length}}
+                    <div class="list-group">
+                        {{#each interested_games}}
+                        <a href="/games/{{this.id}}" class="list-group-item list-group-item-action">
+                            {{this.title}} - {{this.genre}}
+                        </a>
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <p>You haven't added any games to your profile yet.</p>
+                    {{/if}}
+                </div>
+                <div class="send-message mt-5">
+                    <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
+                </div>
+                <br>
+                <a href="/profile/edit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
+                <!-- Uncomment or add here if implementing event participation/viewing
+            <div class="user-events mt-5">
+                <h3>Upcoming Events</h3>
+                Display events the user is participating in or organizing
+            </div> -->
+            </div>
+        </div>
+    </div>
+</main>

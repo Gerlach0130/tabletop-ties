@@ -1,12 +1,12 @@
-// For available games to be searched and interested in
+// For game events (including relations to user and game)
 
-// Import 
+// Imports
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Game extends Model {};
+class Event extends Model {};
 
-Game.init(
+Event.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -18,18 +18,25 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        genre: {
-            type: DataTypes.STRING
-        },
-        player_count: {
-            type: DataTypes.INTEGER
-        },
-        avg_play_time: {
-            type: DataTypes.INTEGER
-        },
         description: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
+        },
+        location: {
+            type: DataTypes.STRING
+        },
+        date_of: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
+        },
+        game_id: {
+            type: DataTypes.INTEGER, 
+            allowNull: false,
+            references: {
+                model: 'game',
+                key: 'id'
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -44,8 +51,8 @@ Game.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'game'
+        modelName: 'event'
     }
 );
 
-module.exports = Game;
+module.exports = Event;
