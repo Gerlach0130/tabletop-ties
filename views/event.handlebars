@@ -1,8 +1,8 @@
 <div class="container mt-5">
-    <h1 class="display-4">{{title}}</h1>
-    <p class="lead">{{description}}</p>
-    <p><strong>Location:</strong> {{location}}</p>
-    <p><strong>Date:</strong> {{formatDate date_of}}</p>
+    <h1 class="display-4">{{event.title}}</h1>
+    <p class="lead">{{event.description}}</p>
+    <p><strong>Location:</strong> {{event.location}}</p>
+    <p><strong>Date:</strong> {{format_date event.date_of}}</p>
 
     {{#if event_games}}
     <div class="games-list mt-4">
