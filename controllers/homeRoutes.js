@@ -44,6 +44,7 @@ router.get('/profile', withAuth, async (req, res) => {
         const user = userData.get({plain: true});
         res.render('profile', {
             ...user, 
+            isCurrentUser: true,
             logged_in: true
         });
     } catch (err) {
@@ -150,9 +151,11 @@ router.get('/users/:id', withAuth, async (req, res) => {
         }
 
         const user = userData.get({ plain: true });
+        const isCurrentUser = req.session.user_id === user.id;
 
         res.render('profile', {
             ...user,
+            isCurrentUser,
             logged_in: req.session.logged_in,
         });
     } catch (error) {

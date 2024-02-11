@@ -28,7 +28,9 @@
                     <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
                 </div>
                 <br>
+                {{#if isCurrentUser}}
                 <a href="/profile/edit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
+                {{/if}}
                 <!-- Uncomment or add here if implementing event participation/viewing
             <div class="user-events mt-5">
                 <h3>Upcoming Events</h3>
