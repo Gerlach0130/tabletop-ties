@@ -28,14 +28,21 @@ router.get('/profile', withAuth, async (req, res) => {
     try{ 
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
-            include: [{
-                model: Game,
-                as: 'interested_games', 
-                attributes: ['id', 'title', 'genre'],
-                through: {
-                    attributes: [], // Exclude join table attributes if not needed
+            include: [
+                {
+                    model: Game,
+                    as: 'interested_games', 
+                    attributes: ['id', 'title', 'genre'],
+                    through: {
+                        attributes: [], // Exclude join table attributes if not needed
+                    },
                 },
-            }],
+                {
+                    model: Event,
+                    as: 'attendees',
+                    attributes: ['id', 'title', 'location', 'date_of']
+                }
+            ],
         });
         if (!userData) {
             res.status(404).json({ message: 'User not found' });
@@ -140,8 +147,8 @@ router.get('/events/:id', withAuth, async (req, res) => {
                 },
                 {
                     model: User,
-                    as: 'attendees', 
-                    attributes: ['id', 'name'],
+                    as: 'attending', 
+                    attributes: ['name'],
                     through: {
                         attributes: [],
                     },
