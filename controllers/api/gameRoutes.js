@@ -1,6 +1,7 @@
 // Imports
 const router = require('express').Router();
 const { User, Game, UsersGames } = require('../../models');
+const { Op } = require("sequelize");
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -57,6 +58,41 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+// POST route for user to add a game to profile interests 
+router.post('/add', withAuth, async (req, res) => {
+    try {
+        const newGameInterest = await UsersGames.create({
+            ...req.body,
+            user_id: req.session.user_id
+        });
+        console.log(newGameInterest);
+        res.status(200).json(newGameInterest);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
+    }
+});
+
+// GET route to search by game title 
+router.get('/title/:title', async (req, res) => {
+    try {
+        console.log(req.params.title);
+        const gameData = await Game.findAll({
+            where: {
+                title: {
+                    [Op.like]: `%${req.params.title}`
+                }
+            }
+            // Possibly add other relevant associations and attributes
+        });
+        
+        res.status(200).json(gameData);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // GET route to search by genre  ---- currently not working ----
 router.get('/genre/:genre', async (req, res) => {
     try {
@@ -66,38 +102,6 @@ router.get('/genre/:genre', async (req, res) => {
         res.status(200).json(gamesByGenre);
     } catch (err) {
         res.status(500).json(err);
-    }
-});
-
-// GET route to search by game title  ---- currently not working ----
-router.get('/title/:title', async (req, res) => {
-    try {
-        const gameData = await Game.findAll({
-            where: {
-                title: {
-                    [sequelize.Op.like]: `%${req.params.title.toLowerCase()}%`
-                }
-            }
-            // Possibly add other relevant associations and attributes
-        });
-        res.status(200).json(gameData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// POST route for user to add a game to profile interests ---- currently not working ----
-router.post('/add', withAuth, async (req, res) => {
-    try {
-        const newGameInterest = await UsersGames.create({
-            // ...req.body,
-            user_id: req.session.user_id,
-            game_id: req.body.game_id
-        });
-        res.status(200).json(newGameInterest);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json(error);
     }
 });
 
