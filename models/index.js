@@ -62,7 +62,7 @@ Event.belongsTo(Game, {
 
 Event.belongsToMany(User, {
   through: UsersEvents,
-  as: 'attendees',
+  as: 'attending',
   foreignKey: 'event_id',
   otherKey: 'user_id'
 });

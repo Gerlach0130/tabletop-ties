@@ -7,21 +7,7 @@ const sequelize = require('../../config/connection');
 // GET route to list all events 
 router.get('/', async (req, res) => {
     try {
-        const eventData = await Event.findAll({
-            include: [
-                {
-                    model: Game,
-                    through: EventsGames,
-                    as: 'event_games',
-                },
-                {
-                    model: User,
-                    through: UsersEvents,
-                    as: 'attendees',
-                    attributes: ['name'],
-                }
-            ]
-        });
+        const eventData = await Event.findAll({});
         res.status(200).json(eventData);
     } catch (error) {
         res.status(500).json(error);
@@ -41,8 +27,8 @@ router.get('/:id', async (req, res) => {
                 {
                     model: User,
                     through: UsersEvents,
-                    as: 'attendees',
-                    attributes: ['id', 'name'],
+                    as: 'attending',
+                    attributes: ['name'],
                 },
             ]
         });

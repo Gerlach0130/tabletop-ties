@@ -22,21 +22,26 @@
                 <p>You haven't added any games to your profile yet.</p>
                 {{/if}}
             </div>
+
             <div class="user-events mt-5">
                 <h3>Upcoming Events</h3>
                 {{#if attendees.length}}
-                <ul>
+                <div class="list-group">
                     {{#each attendees}}
                     <a href="/events/{{this.id}}" class="list-group-item list-group-item-action">
+                        {{this.title}}
+                    </a>
                     {{/each}}
-                </ul>
+                </div>
                 {{else}}
                 <p>You are not participating in any upcoming events</p>
                 {{/if}}
             </div>
+
             <div class="send-message mt-5">
                 <button class="btn btn-primary" id="sendMessageBtn" data-recipient-id="{{id}}">Send A Raven</button>
             </div>
+
             <br>
             {{#if isCurrentUser}}
             <a href="/profile/edit" class="btn btn-outline-primary btn-sm d-flex justify-content-center">Edit Profile</a>

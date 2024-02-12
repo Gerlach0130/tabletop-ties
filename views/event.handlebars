@@ -18,11 +18,11 @@
     </div>
     {{/if}}
 
-    {{#if attendees}}
+    {{#if attending}}
     <div class="attendees-list mt-4">
         <h2>Attendees</h2>
         <ul>
-            {{#each attendees}}
+            {{#each attending}}
             <li>{{this.name}}</li>
             {{/each}}
         </ul>
