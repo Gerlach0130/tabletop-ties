@@ -6,6 +6,8 @@
             <h3>Description:</h3>
             <p>{{description}}</p>
         </div>
+        <button data-gameid="{{id}}" id="gameInterest" class="btn btn-dark">I'm Interested</button>
+
         <!-- Assuming there are images associated with the game -->
         {{#if images}}
         <div class="game-images mt-3">
@@ -28,3 +30,4 @@
         {{/if}}
     </div>
 </div>
+<script src="/js/gameInterest.js"></script>
