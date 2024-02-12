@@ -11,6 +11,7 @@
   <script src="/socket.io/socket.io.js"></script>
   
   <script src="../../utils/socketio.js"></script>
+  <script src="../../public/js/socketio.js"></script>
 </head>
 
 <body>
@@ -48,9 +49,9 @@
         </div> --}}
         <div class="input-box">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Start the conversation here ... ">
+            <input id="messageInput" type="text" class="form-control" placeholder="Start the conversation here ... ">
             <div class="input-group-append">
-              <button class="btn btn-dark" type="button">SEND A RAVEN</button>
+              <button id= "sendButton" class="btn btn-dark" type="button">SEND A RAVEN</button>
             </div>
           </div>
         </div>
