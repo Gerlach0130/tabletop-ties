@@ -157,7 +157,7 @@ router.get('/events/:id', withAuth, async (req, res) => {
         const event = eventData.get({ plain: true });
 
         res.render('event', {
-            event,
+            ...event,
             logged_in: req.session.logged_in 
         });
     } catch (err) {

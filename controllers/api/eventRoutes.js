@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
                     through: UsersEvents,
                     as: 'attendees',
                     attributes: ['id', 'name'],
-                }
+                },
             ]
         });
 
@@ -70,6 +70,21 @@ router.post('/', withAuth, async (req, res) => {
     } catch (error) {
         console.error('Failed to create event:', error);
         res.status(500).json({ message: 'Failed to create event', error: error.toString() });
+    }
+});
+
+// POST route for user to state interest/attendance in event
+router.post('/add', withAuth, async (req, res) => {
+    try {
+        const eventAttend = await UsersEvents.create({
+            ...req.body,
+            user_id: req.session.user_id
+        });
+        console.log(eventAttend);
+        res.status(200).json(eventAttend);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 
