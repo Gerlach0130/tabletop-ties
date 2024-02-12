@@ -37,7 +37,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'), {'Content-Type': 'application/javascript'}));
-
+app.use(express.static(path.join(__dirname, 'utils'),{'Content-Type': 'application/javascript'}));
 app.use(routes);
 
 const server = app.listen(PORT, () => { 
