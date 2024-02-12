@@ -1,8 +1,9 @@
 <div class="single-event">
-    <h1 class="display-4">{{event.title}}</h1>
-    <p class="lead">{{event.description}}</p>
-    <p><strong>Location:</strong> {{event.location}}</p>
-    <p><strong>Date:</strong> {{format_date event.date_of}}</p>
+    <h1 class="display-4">{{title}}</h1>
+    <p class="lead">{{description}}</p>
+    <p><strong>Location:</strong> {{location}}</p>
+    <p><strong>Date:</strong> {{format_date date_of}}</p>
+    <button data-eventid="{{id}}" id="eventInterest" class="btn btn-dark">I'm Attending</button>
 
     {{#if event_games}}
     <div class="games-list mt-4">
@@ -20,11 +21,12 @@
     {{#if attendees}}
     <div class="attendees-list mt-4">
         <h2>Attendees</h2>
-        <ul class="list-group">
+        <ul>
             {{#each attendees}}
-            <li class="list-group-item">{{this.name}}</li>
+            <li>{{this.name}}</li>
             {{/each}}
         </ul>
     </div>
     {{/if}}
 </div>
+<script src="/js/eventInterest.js"></script>

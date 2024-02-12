@@ -27,7 +27,7 @@
                 {{#if attendees.length}}
                 <ul>
                     {{#each attendees}}
-                    <li>{{this.title}} - {{this.date}}</li>
+                    <a href="/events/{{this.id}}" class="list-group-item list-group-item-action">
                     {{/each}}
                 </ul>
                 {{else}}
